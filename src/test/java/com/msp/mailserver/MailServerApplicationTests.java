@@ -1,4 +1,4 @@
-package jx.mailServer;
+package com.msp.mailserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

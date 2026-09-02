@@ -1,4 +1,4 @@
-package jx.mailServer;
+package com.msp.mailserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,8 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class MailServerApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(MailServerApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(MailServerApplication.class, args);
+    }
 }

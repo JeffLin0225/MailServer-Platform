@@ -5,14 +5,14 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.5.0</version>
+		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>jx</groupId>
-	<artifactId>mailServer</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>mailServer</name>
-	<description>Demo project for Spring Boot</description>
+	<groupId>com.msp</groupId>
+	<artifactId>mailserver-platform</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<name>MailServer Platform (MSP)</name>
+	<description>MailServer Platform (MSP) - High Availability Direct-to-MX SMTP MTA Engine</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -45,11 +45,13 @@
 		<dependency>
 			<groupId>org.simplejavamail</groupId>
 			<artifactId>simple-java-mail</artifactId>
-			<version>8.12.6</version> </dependency>
+			<version>8.12.6</version>
+		</dependency>
 		<dependency>
 			<groupId>org.simplejavamail</groupId>
 			<artifactId>utils-mail-dkim</artifactId>
-			<version>3.2.2</version> </dependency>
+			<version>3.2.2</version>
+		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
