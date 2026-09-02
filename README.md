@@ -84,37 +84,7 @@ flowchart TB
 - **Read SoTimeout (預設 15 秒)**：防止伺服端在交談階段無回應導致執行緒池被消耗殆盡。
 
 ### 4. 完整的 SMTP RFC 5321 協議狀態機與 STARTTLS
-完整自研交握通訊狀態機，支援指令協商：
-```mermaid
-sequenceDiagram
-    autonumber
-    participant MTA as MSP (MailServer Platform)
-    participant Target as 目標 MX 伺服器 (Port 25)
-
-    Note over MTA,Target: TCP Handshake (Timeout: 10s)
-    Target-->>MTA: 220 target.com ESMTP Service Ready
-    MTA->>Target: EHLO mail.yourdomain.com
-    Target-->>MTA: 250-STARTTLS / 250 OK
-    
-    alt 目標支援 STARTTLS
-        MTA->>Target: STARTTLS
-        Target-->>MTA: 220 2.0.0 Ready to start TLS
-        Note over MTA,Target: TLS Upgrade (SSLSocket Handshake)
-        MTA->>Target: EHLO mail.yourdomain.com
-        Target-->>MTA: 250 OK
-    end
-
-    MTA->>Target: MAIL FROM:<admin@yourdomain.com>
-    Target-->>MTA: 250 2.1.0 OK
-    MTA->>Target: RCPT TO:<recipient@example.com>
-    Target-->>MTA: 250 2.1.5 OK
-    MTA->>Target: DATA
-    Target-->>MTA: 354 Start mail input; end with <CRLF>.<CRLF>
-    MTA->>Target: [MIME Body + DKIM-Signature] \r\n.\r\n
-    Target-->>MTA: 250 2.0.0 OK: queued as ...
-    MTA->>Target: QUIT
-    Target-->>MTA: 221 2.0.0 Bye
-```
+完整自研交握通訊狀態機，支援指令協商
 
 ### 5. DKIM 數位簽章 (RFC 6376) 與平滑容錯
 - 支援 RSA-SHA256 私鑰簽章，在郵件標頭嵌入 `DKIM-Signature`，避免被收件方視為偽冒郵件 (Spam)。
